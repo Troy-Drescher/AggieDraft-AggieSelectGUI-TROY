@@ -47,7 +47,7 @@ public abstract class Aggie implements ActionListener{
 	protected Abilities ultimate;
 	
 	public Aggie(Sprite sprite, int size, 
-				String name, int damage, int speed, int defense, int health, String agTIcon) {
+				String name, int damage, int speed, int defense, int health,ImageIcon agTIcon) {
 		this.sprite = sprite;
 		this.size = size;
 		this.name = name;
@@ -55,7 +55,7 @@ public abstract class Aggie implements ActionListener{
 		this.speed = speed;
 		this.defense = defense;
 		this.health = health;
-    agIcon = new ImageIcon(agTIcon);
+    agIcon = agTIcon;
 		maxHealth = health;
 		HPbar = new JProgressBar(0,maxHealth);
 	}

@@ -26,6 +26,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.JTextArea;
 import javax.swing.JToggleButton;
 import javax.swing.JButton;
 import javax.swing.Timer;
@@ -59,6 +60,7 @@ public class Main extends JPanel implements ActionListener{ // Add panel on side
 	static Timer timer;
 	static JTextField display = new JTextField();
   static JTextField agSelName,agselAB1,agselAB2,agselAB3,agselAB4,agselStats;
+  static JTextField agselAB1t,agselAB2t,agselAB3t,agselAB4t;
 	static String str;
 	static int end;
 	private static Scanner kb = new Scanner(System.in);
@@ -168,7 +170,18 @@ JPanel agimgseltext = new JPanel();
   agimgseltext.add(agSelName);
 
 JPanel agselLeft = new JPanel();
-agselAB1 = new JTextField("Medinasaur");
+JPanel agselright = new JPanel();
+agselAB1 = new JTextField(AggieLists[0].getAbilities()[0].getName());
+agselAB2 = new JTextField(AggieLists[0].getAbilities()[1].getName());
+agselAB3 = new JTextField(AggieLists[0].getAbilities()[2].getName());
+agselAB4 = new JTextField(AggieLists[0].getAbilities()[3].getName());
+agselAB1t = new JTextField(AggieLists[0].getAbilities()[0].getType());
+agselAB2t = new JTextField(AggieLists[0].getAbilities()[1].getType());
+agselAB3t = new JTextField(AggieLists[0].getAbilities()[2].getType());
+agselAB4t = new JTextField(AggieLists[0].getAbilities()[3].getType());
+JTextArea larea = new JTextArea();
+agselLeft.add(agselAB1);
+
 
 Box hbox = Box.createHorizontalBox();
 
@@ -213,10 +226,11 @@ Container c = new Container();
 			}
 		}
 		catch(Exception e) {}
-		Aggie a1 = new Medinasaur(new Sprite("rayquaza.png"),100,"Medinasuar",50,50,50,125,"rayquaza.png");
-		Aggie a2 = new Penisaur(new Sprite("pika.png"),100,"Penisaur",75,80,50,70,"rayquaza.png");
+		Aggie a1 = new Medinasaur(new Sprite("rayquaza.png"),100,"Medinasuar",50,50,50,125,ag1Icon);
+		Aggie a2 = new Penisaur(new Sprite("pika.png"),100,"Penisaur",75,80,50,70,ag2Icon);
     // params(Sprite, dimX, dimY, size, name, damage, speed, defense, health)
 		Aggie[] aggieList = {a1,a2};
+    AggieLists = aggieList;
 		// params(Sprite, dimX, dimY, size, name, damage, speed, defense, health)
 		System.out.println("Select the first Aggie\n");
 		for(int i = 0; i < aggieList.length;i++) {
