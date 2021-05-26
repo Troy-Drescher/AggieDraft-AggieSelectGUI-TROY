@@ -59,8 +59,9 @@ public class Main extends JPanel implements ActionListener{ // Add panel on side
 	private Graphics2D ga;
 	static Timer timer;
 	static JTextField display = new JTextField();
-  static JTextField agSelName,agselAB1,agselAB2,agselAB3,agselAB4,agselStats;
-  static JTextField agselAB1t,agselAB2t,agselAB3t,agselAB4t;
+  static String agselAB1,agselAB2,agselAB3,agselAB4;
+  static JTextField agSelName,agselStats;
+  static String agselAB1t,agselAB2t,agselAB3t,agselAB4t;
 	static String str;
 	static int end;
 	private static Scanner kb = new Scanner(System.in);
@@ -165,26 +166,29 @@ JPanel aggieImageSelection = new JPanel();
     aggieImageSelection.add(agIMG);
 
 JPanel agimgseltext = new JPanel();
+agimseltext.setLayout(new GridLayout(2,3,10,10));
   agSelName = new JTextField("Medinasaur");
   agSelName.setEditable(false);
   agimgseltext.add(agSelName);
 
 JPanel agselLeft = new JPanel();
 JPanel agselright = new JPanel();
-agselAB1 = new JTextField(AggieLists[0].getAbilities()[0].getName());
-agselAB2 = new JTextField(AggieLists[0].getAbilities()[1].getName());
-agselAB3 = new JTextField(AggieLists[0].getAbilities()[2].getName());
-agselAB4 = new JTextField(AggieLists[0].getAbilities()[3].getName());
-agselAB1t = new JTextField(AggieLists[0].getAbilities()[0].getType());
-agselAB2t = new JTextField(AggieLists[0].getAbilities()[1].getType());
-agselAB3t = new JTextField(AggieLists[0].getAbilities()[2].getType());
-agselAB4t = new JTextField(AggieLists[0].getAbilities()[3].getType());
+agselAB1 = AggieLists[0].getAbilities()[0].getName();
+agselAB2 = AggieLists[0].getAbilities()[1].getName();
+agselAB3 = AggieLists[0].getAbilities()[2].getName();
+agselAB4 = AggieLists[0].getAbilities()[3].getName();
+agselAB1t = AggieLists[0].getAbilities()[0].getDesc();
+agselAB2t = AggieLists[0].getAbilities()[1].getDesc();
+agselAB3t = AggieLists[0].getAbilities()[2].getDesc();
+agselAB4t = AggieLists[0].getAbilities()[3].getDesc();
 JTextArea larea = new JTextArea();
-agselLeft.add(agselAB1);
-
+larea.setText(agselAB1 + "\n" + agselAB1t + "\n\n" + agselAB2 + "\n" + agselAB2t);
+JTextArea Rarea = new JTextArea();
+Rarea.setText(agselAB3 + "\n" + agselAB3t + "\n\n" + agselAB4 + "\n" + agselAB4t);
+agselLeft.add(larea);
+agselright.add(Rarea);
 
 Box hbox = Box.createHorizontalBox();
-
     hbox.add(Box.createHorizontalStrut(10));
     hbox.add(agSbuttons);
     hbox.add(Box.createHorizontalStrut(10));
@@ -197,12 +201,23 @@ Box vbox = Box.createVerticalBox();
     vbox.add(agimgseltext);
     vbox.add(Box.createVerticalStrut(5));
     vbox.add(aggieImageSelection);
+Box h1box = Box.createHorizontalBox();
+h1box.add(Box.createHorizontalStrut(10));
+h1box.add(agselLeft);
+h1box.add(Box.createHorizontalStrut(10));
+Box h2box = Box.createHorizontalBox();
+h2box.add(Box.createHorizontalStrut(10));
+h2box.add(agselright);
+h2box.add(Box.createHorizontalStrut(10));
+
+
 //I DID IT
 Container c = new Container();
-    c.setLayout(new GridLayout(2,1, 10,10));
-    c.add(hbox, BorderLayout.SOUTH);
+    c.setLayout(new BorderLayout(10,10));
+    c.add(hbox, BorderLayout.NORTH);
+    c.add(h1box, BorderLayout.WEST);
     c.add(vbox, BorderLayout.CENTER);
-
+    c.add(h2box, BorderLayout.EAST);
 
     selectFrame = new JFrame();
 		selectFrame.setSize(width,height);

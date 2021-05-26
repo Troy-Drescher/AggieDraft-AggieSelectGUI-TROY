@@ -39,7 +39,9 @@ public class Abilities{
 	public String getName() {
 		return name;
 	}
-
+  public String getDesc() {
+    return tooltip;
+  }
 	public int getValue() {
 		return abilityValue;
 	}
