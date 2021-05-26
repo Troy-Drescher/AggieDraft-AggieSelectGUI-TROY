@@ -50,13 +50,14 @@ public class Main extends JPanel implements ActionListener{ // Add panel on side
   */
 	static Aggie p1,p2;
 	static JToggleButton toggle, p1sel,p2sel;
-  static JButton nextAG,prevAG;
+  static JButton nextAG,prevAG,agselStart;
 	private JTable table = new JTable();
 	private JScrollPane container;
 	static DefaultTableModel model = new DefaultTableModel();
 	private Graphics2D ga;
 	static Timer timer;
 	static JTextField display = new JTextField();
+  static JtextField agSelName;
 	static String str;
 	static int end;
 	private static Scanner kb = new Scanner(System.in);
@@ -142,11 +143,16 @@ public class Main extends JPanel implements ActionListener{ // Add panel on side
   agSbuttons.setLayout(new GridLayout(3, 1, 10, 10));
   JPanel agS2buttons = new JPanel();
   agS2buttons.setLayout(new GridLayout(3, 1, 10, 10));
+  JPanel agS3buttons = new JPanel();
+  agS3buttons.setLayout(new GridLayout(3, 1, 10, 10));
   nextAG = new JButton("Next");
   prevAG = new JButton("Prev");
+  agselStart = new JButton("Start");
   nextAG.addActionListener(this);
   prevAG.addActionListener(this);
+  agselStart.addActionListener(this);
 agS2buttons.add(nextAG);
+agS3buttons.add(agselStart);
 agSbuttons.add(prevAG);
 
 JPanel aggieImageSelection = new JPanel();
@@ -155,17 +161,22 @@ JPanel aggieImageSelection = new JPanel();
     agIMG.setOpaque(true);
     aggieImageSelection.add(agIMG);
 
+JPanel agimgseltext = new JPanel();
+  agSelName = new JTextField("Medinasaur");
+  agSelName.setEditable(false);
 
 Box hbox = Box.createHorizontalBox();
 
     hbox.add(Box.createHorizontalStrut(10));
     hbox.add(agSbuttons);
     hbox.add(Box.createHorizontalStrut(10));
-    //add panel here
+    hbox.add(agS3buttons);
     hbox.add(Box.createHorizontalStrut(10));
     hbox.add(agS2buttons);
     hbox.add(Box.createHorizontalStrut(10));
 Box vbox = Box.createVerticalBox();
+    vbox.add(Box.createVerticalStrut(5));
+    vbox.add(agimgseltext);
     vbox.add(Box.createVerticalStrut(5));
     vbox.add(aggieImageSelection);
 //I DID IT
@@ -180,9 +191,12 @@ Container c = new Container();
 		selectFrame.setLocationRelativeTo(null);
     selectFrame.setBackground(Color.BLACK);
     selectFrame.add(c);
-		selectFrame.setDefaultCloseOperation(3);
+		selectFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     selectFrame.setResizable(true);
     selectFrame.setVisible(true);
+
+
+
 
   }
 	
