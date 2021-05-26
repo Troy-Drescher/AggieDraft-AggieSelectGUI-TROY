@@ -22,15 +22,18 @@ public abstract class Aggie implements ActionListener{
 			debuff = 2,
 			condition = 3;
 
+private int xAni;
+	private int yAni;
+
 	protected final int dmg = 0, // stat that is changed for buff or debuff
 			spd = 1,
-			def = 2;
-	
-	protected int turnLost = 0,
-				  trueDMG = 1;
+			def = 2,
+			turnLost = 3,
+			trueDMG = 4,
+			hp = 5;
 	
 	private final String name;
-	private int damage,
+	private int damage, 
 				speed,
 				defense,
 				health;
@@ -46,17 +49,16 @@ public abstract class Aggie implements ActionListener{
 	
 	protected Abilities ultimate;
 	
-	public Aggie(Sprite sprite, int size, 
-				String name, int damage, int speed, int defense, int health,ImageIcon agTIcon) {
+	public Aggie(Sprite sprite, String name, int damage, int speed, int defense, int health,ImageIcon agTIcon) {
 		this.sprite = sprite;
-		this.size = size;
+		size = 100;
 		this.name = name;
 		this.damage = damage;
 		this.speed = speed;
 		this.defense = defense;
-		this.health = health;
-    agIcon = agTIcon;
-		maxHealth = health;
+		this.health = health*10;
+		maxHealth = health*10;
+    agIcon=agTIcon;
 		HPbar = new JProgressBar(0,maxHealth);
 	}
 	
@@ -174,13 +176,22 @@ public abstract class Aggie implements ActionListener{
 	public JPanel getAbilityPanel() {
 		return this.panel;
 	}
+
+	public void setAnimations(int x, int y) {
+		xAni = x;
+		yAni = y;
+	}
 	
+	public void returnOrgin() {
+		xPos = xOrgin;
+		yPos = yOrgin;
+	}
 	public void animate() {
-		xPos = xPos -1;
-		yPos = yPos +1;
-		if(xPos == xOrgin - 20)
+		xPos = xPos + xAni;
+		yPos = yPos + yAni;
+		if(xPos == xOrgin + (xAni * 20))
 			xPos = xOrgin;
-		if(yPos == yOrgin + 5)
+		if(yPos == yOrgin + (yAni * 5))
 			yPos = yOrgin;
 	}
 	
@@ -207,7 +218,11 @@ public abstract class Aggie implements ActionListener{
 		g.drawImage(sprite.getSprite(), xPos, yPos, size, size, null);
 		
 	}
-	
+  
+	public void setSprite(String path) {
+		this.sprite = new Sprite(path);
+	}
+
 	public void actionPerformed(ActionEvent e) {
 		setDrip(-20);
 	}
