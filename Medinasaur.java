@@ -1,9 +1,9 @@
 import javax.swing.ImageIcon;
 public class Medinasaur extends Aggie{
 
-	public Medinasaur(Sprite sprite, int size, 
+	public Medinasaur(Sprite sprite, 
 					  String name, int damage, int speed, int defense, int health,ImageIcon agicon) {
-		super(sprite, size, name, damage, speed, defense, health,agicon);
+		super(sprite, name, damage, speed, defense, health,agicon);
 	}
 
 	@Override

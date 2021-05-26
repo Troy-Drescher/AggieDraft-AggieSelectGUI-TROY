@@ -1,9 +1,9 @@
 import javax.swing.ImageIcon;
 public class Penisaur extends Aggie{
 
-	public Penisaur(Sprite sprite, int size,
+	public Penisaur(Sprite sprite,
 					String name, int damage, int speed, int defense, int health,ImageIcon agIcon) {
-		super(sprite, size, name, damage, speed, defense, health,agIcon);
+		super(sprite, name, damage, speed, defense, health,agIcon);
 	}
 
 	@Override

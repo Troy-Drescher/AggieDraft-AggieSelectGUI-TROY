@@ -14,7 +14,8 @@ public abstract class Aggie implements ActionListener{
 	
 	private Sprite sprite;
   private ImageIcon agIcon;
-	private int xPos, yPos,size;
+	private int xPos, yPos;
+  public int size;
 	private int xOrgin, yOrgin;
 	
 	protected final int attack = 0, //types of abilities
@@ -218,7 +219,7 @@ private int xAni;
 		g.drawImage(sprite.getSprite(), xPos, yPos, size, size, null);
 		
 	}
-  
+
 	public void setSprite(String path) {
 		this.sprite = new Sprite(path);
 	}

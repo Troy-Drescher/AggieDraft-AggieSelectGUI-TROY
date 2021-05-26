@@ -254,8 +254,8 @@ Container c = new Container();
 			}
 		}
 		catch(Exception e) {}
-		Aggie a1 = new Medinasaur(new Sprite("rayquaza.png"),100,"Medinasuar",50,50,50,125,ag1Icon);
-		Aggie a2 = new Penisaur(new Sprite("pika.png"),100,"Penisaur",75,80,50,70,ag2Icon);
+		Aggie a1 = new Medinasaur(new Sprite("rayquaza.png"),"Medinasuar",50,50,50,125,ag1Icon);
+		Aggie a2 = new Penisaur(new Sprite("pika.png"),"Penisaur",75,80,50,70,ag2Icon);
     // params(Sprite, dimX, dimY, size, name, damage, speed, defense, health)
 		Aggie[] aggieList = {a1,a2};
     AggieLists = aggieList;
