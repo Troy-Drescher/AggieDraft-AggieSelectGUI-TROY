@@ -168,7 +168,7 @@ Box hbox = Box.createHorizontalBox();
 Box vbox = Box.createVerticalBox();
     vbox.add(Box.createVerticalStrut(5));
     vbox.add(aggieImageSelection);
-
+//I DID IT
 Container c = new Container();
     c.setLayout(new GridLayout(2,1, 10,10));
     c.add(hbox, BorderLayout.SOUTH);
