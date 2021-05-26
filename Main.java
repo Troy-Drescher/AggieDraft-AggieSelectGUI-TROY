@@ -41,14 +41,15 @@ public class Main extends JPanel implements ActionListener{ // Add panel on side
 	static final int width = 410, height = 410;
 	private BufferedImage icon;
   private JLabel agIMG;
-  private ImageIcon ag1Icon = new ImageIcon("rayquaza.png");
-  private ImageIcon ag2Icon = new ImageIcon("pika.png");
+  static ImageIcon ag1Icon = new ImageIcon("rayquaza.png");
+  static ImageIcon ag2Icon = new ImageIcon("pika.png");
 /*
   private ImageIcon SportBlack = new ImageIcon("SportBlack.jpeg");
   private ImageIcon SportBlue = new ImageIcon("SportBlue.jpeg");
   private ImageIcon SportWhite = new ImageIcon("SportWhite.jpeg"); 
   */
 	static Aggie p1,p2;
+  static Aggie[] AggieLists;
 	static JToggleButton toggle, p1sel,p2sel;
   static JButton nextAG,prevAG,agselStart;
 	private JTable table = new JTable();
@@ -57,7 +58,7 @@ public class Main extends JPanel implements ActionListener{ // Add panel on side
 	private Graphics2D ga;
 	static Timer timer;
 	static JTextField display = new JTextField();
-  static JtextField agSelName;
+  static JTextField agSelName,agselAB1,agselAB2,agselAB3,agselAB4,agselStats;
 	static String str;
 	static int end;
 	private static Scanner kb = new Scanner(System.in);
@@ -164,6 +165,10 @@ JPanel aggieImageSelection = new JPanel();
 JPanel agimgseltext = new JPanel();
   agSelName = new JTextField("Medinasaur");
   agSelName.setEditable(false);
+  agimgseltext.add(agSelName);
+
+JPanel agselLeft = new JPanel();
+agselAB1 = new JTextField("Medinasaur");
 
 Box hbox = Box.createHorizontalBox();
 
@@ -208,13 +213,10 @@ Container c = new Container();
 			}
 		}
 		catch(Exception e) {}
-		
-		// params(Sprite, dimX, dimY, size, name, damage, speed, defense, health)
-		Aggie [] aggieList = {
-				new Medinasaur(new Sprite("rayquaza.png"),100,"Medinasuar",50,50,50,125),
-				new Penisaur(new Sprite("pika.png"),100,"Penisaur",75,80,50,70)
-		};
-		
+		Aggie a1 = new Medinasaur(new Sprite("rayquaza.png"),100,"Medinasuar",50,50,50,125,"rayquaza.png");
+		Aggie a2 = new Penisaur(new Sprite("pika.png"),100,"Penisaur",75,80,50,70,"rayquaza.png");
+    // params(Sprite, dimX, dimY, size, name, damage, speed, defense, health)
+		Aggie[] aggieList = {a1,a2};
 		// params(Sprite, dimX, dimY, size, name, damage, speed, defense, health)
 		System.out.println("Select the first Aggie\n");
 		for(int i = 0; i < aggieList.length;i++) {
@@ -291,6 +293,11 @@ Container c = new Container();
 			} catch (InterruptedException e1) {}
 			timer.stop();
 		}
+    if(nextAG.isSelected())
+    {
+
+    }
+
 	}
 	
 	public static void updateTable() {

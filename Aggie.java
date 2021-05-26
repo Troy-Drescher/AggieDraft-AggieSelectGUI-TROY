@@ -8,10 +8,12 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.Timer;
+import javax.swing.ImageIcon;
 
 public abstract class Aggie implements ActionListener{
 	
 	private Sprite sprite;
+  private ImageIcon agIcon;
 	private int xPos, yPos,size;
 	private int xOrgin, yOrgin;
 	
@@ -45,7 +47,7 @@ public abstract class Aggie implements ActionListener{
 	protected Abilities ultimate;
 	
 	public Aggie(Sprite sprite, int size, 
-				String name, int damage, int speed, int defense, int health) {
+				String name, int damage, int speed, int defense, int health, String agTIcon) {
 		this.sprite = sprite;
 		this.size = size;
 		this.name = name;
@@ -53,6 +55,7 @@ public abstract class Aggie implements ActionListener{
 		this.speed = speed;
 		this.defense = defense;
 		this.health = health;
+    agIcon = new ImageIcon(agTIcon);
 		maxHealth = health;
 		HPbar = new JProgressBar(0,maxHealth);
 	}
@@ -65,6 +68,11 @@ public abstract class Aggie implements ActionListener{
 		health = x;
 	}
 	
+  public ImageIcon getselIcon()
+  {
+    return agIcon;
+  }
+
 	public int getHealth() {
 		return health;
 	}
