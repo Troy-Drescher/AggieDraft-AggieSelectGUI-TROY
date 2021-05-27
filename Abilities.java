@@ -8,14 +8,6 @@ public class Abilities{
 	private AbilityButton button;
 	private String tooltip;
 	
-	public Abilities(String name, int type, int value, int stat, String tooltip) { // buff or debuff
-		this.name = name;
-		this.type = type;
-		abilityValue = value;
-		this.stat = stat;
-		this.tooltip = tooltip;
-	}
-	
 	public Abilities(String name, int type, String tooltip) { // attack
 		this.name = name;
 		this.type = type;
@@ -26,6 +18,7 @@ public class Abilities{
 		this.name = name;
 		this.type = type;
 		this.effect = effect;
+		this.stat = effect;
 		this.tooltip = tooltip;
 	}
 	
@@ -36,12 +29,23 @@ public class Abilities{
 	public int getStat() {
 		return stat;
 	}
+	public String getStatName() {
+		switch(stat) {
+		case 0:
+			return "damage";
+		case 1: 
+			return "speed";
+		case 2:
+			return "defense";
+		default: 
+			return "health";
+		}
+	}
+	
 	public String getName() {
 		return name;
 	}
-  public String getDesc() {
-    return tooltip;
-  }
+
 	public int getValue() {
 		return abilityValue;
 	}
