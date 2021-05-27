@@ -21,9 +21,7 @@ public class Abilities{
 		this.stat = effect;
 		this.tooltip = tooltip;
 	}
-	public String getDesc() {
-    return tooltip;
-  }
+	
 	public int getType() {
 		return type;
 	}
