@@ -241,7 +241,7 @@ Container c = new Container();
     selectFrame.setVisible(true);
 
 
-
+//l
 
   }
 	
@@ -344,7 +344,7 @@ Container c = new Container();
       Rarea.setText(agselAB3 + "\n" + agselAB3t + "\n\n" + agselAB4 + "\n" + agselAB4t);
 
       JOptionPane.showMessageDialog(Main.this, "Image preview Updated");
-      //k
+      //kl
     }
 		if(end <= str.length()) {
 			display.setText(str.substring(0, end));
