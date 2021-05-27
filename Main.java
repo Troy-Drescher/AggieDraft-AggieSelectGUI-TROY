@@ -43,8 +43,8 @@ public class Main extends JPanel implements ActionListener{ // Add panel on side
 	static JFrame frame,tableFrame,selectFrame,AggieFrame;
 	static final int width = 410, height = 410;
 	private BufferedImage icon;
-  private JLabel agIMG;
-  private JTextArea larea,Rarea;
+  static JLabel agIMG;
+  static JTextArea larea,Rarea;
   static ImageIcon ag1Icon = new ImageIcon("rayquaza.png");
   static ImageIcon ag2Icon = new ImageIcon("pika.png");
 /*
@@ -55,7 +55,7 @@ public class Main extends JPanel implements ActionListener{ // Add panel on side
 	static Aggie p1,p2;
   static Aggie[] AggieLists;
 	static JToggleButton toggle, p1sel,p2sel;
-  private int cAGG=0;
+  static int cAGG=0;
   static JButton nextAG,prevAG,agselStart;
 	private JTable table = new JTable();
 	private JScrollPane container;
@@ -159,9 +159,8 @@ public class Main extends JPanel implements ActionListener{ // Add panel on side
   nextAG = new JButton("Next");
   prevAG = new JButton("Prev");
   agselStart = new JButton("Start");
-  nextAG.addActionListener(this);
-  prevAG.addActionListener(this);
-  agselStart.addActionListener(this);
+  AggieSelectListener asl = new AggieSelectListener();
+  asl.addActionListersAGGIE();
 agS2buttons.add(nextAG);
 agS3buttons.add(agselStart);
 agSbuttons.add(prevAG);
@@ -319,33 +318,6 @@ Container c = new Container();
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String funny = "";
-		try
-		{
-			funny = e.getActionCommand();
-		} catch(Exception abcdefg)
-		{
-			
-		}
-    if(funny.equals("Next"))
-    {
-      cAGG+=1;
-      agSelName.setText(AggieLists[cAGG].getName());
-      agIMG.setIcon(AggieLists[cAGG].getselIcon());
-      agselAB1 = AggieLists[cAGG].getAbilities()[0].getName();
-      agselAB2 = AggieLists[cAGG].getAbilities()[1].getName();
-      agselAB3 = AggieLists[cAGG].getAbilities()[2].getName();
-      agselAB4 = AggieLists[cAGG].getAbilities()[3].getName();
-      agselAB1t = AggieLists[cAGG].getAbilities()[0].getDesc();
-      agselAB2t = AggieLists[cAGG].getAbilities()[1].getDesc();
-      agselAB3t = AggieLists[cAGG].getAbilities()[2].getDesc();
-      agselAB4t = AggieLists[cAGG].getAbilities()[3].getDesc();
-      larea.setText(agselAB1 + "\n" + agselAB1t + "\n\n" + agselAB2 + "\n" + agselAB2t);
-      Rarea.setText(agselAB3 + "\n" + agselAB3t + "\n\n" + agselAB4 + "\n" + agselAB4t);
-
-      JOptionPane.showMessageDialog(Main.this, "Image preview Updated");
-      //kl
-    }
 		if(end <= str.length()) {
 			display.setText(str.substring(0, end));
 			end++;
