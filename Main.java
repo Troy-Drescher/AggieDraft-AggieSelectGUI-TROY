@@ -43,8 +43,8 @@ public class Main extends JPanel implements ActionListener{ // Add panel on side
 	static JFrame frame,tableFrame,selectFrame,AggieFrame;
 	static final int width = 410, height = 410;
 	private BufferedImage icon;
-  private JLabel agIMG;
-  private JTextArea larea,Rarea;
+  static JLabel agIMG;
+  static JTextArea larea,Rarea;
   static ImageIcon ag1Icon = new ImageIcon("rayquaza.png");
   static ImageIcon ag2Icon = new ImageIcon("pika.png");
 /*
@@ -55,7 +55,7 @@ public class Main extends JPanel implements ActionListener{ // Add panel on side
 	static Aggie p1,p2;
   static Aggie[] AggieLists;
 	static JToggleButton toggle, p1sel,p2sel;
-  private int cAGG=0;
+  static int cAGG=0;
   static JButton nextAG,prevAG,agselStart;
 	private JTable table = new JTable();
 	private JScrollPane container;
@@ -159,9 +159,8 @@ public class Main extends JPanel implements ActionListener{ // Add panel on side
   nextAG = new JButton("Next");
   prevAG = new JButton("Prev");
   agselStart = new JButton("Start");
-  nextAG.addActionListener(this);
-  prevAG.addActionListener(this);
-  agselStart.addActionListener(this);
+  AggieSelectListener asl = new AggieSelectListener();
+  asl.addActionListersAGGIE();
 agS2buttons.add(nextAG);
 agS3buttons.add(agselStart);
 agSbuttons.add(prevAG);
@@ -241,7 +240,7 @@ Container c = new Container();
     selectFrame.setVisible(true);
 
 
-
+//l
 
   }
 	
@@ -319,14 +318,6 @@ Container c = new Container();
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-    if(nextAG.isSelected())
-    {
-      cAGG+=1;
-      agIMG.setIcon(AggieLists[cAGG].getselIcon());
-      JOptionPane.showMessageDialog(Main.this, "Image preview Updated");
-      
-    }
 		if(end <= str.length()) {
 			display.setText(str.substring(0, end));
 			end++;
