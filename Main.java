@@ -319,32 +319,13 @@ Container c = new Container();
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String funny = "";
-		try
-		{
-			funny = e.getActionCommand();
-		} catch(Exception abcdefg)
-		{
-			
-		}
-    if(funny.equals("Next"))
+		// TODO Auto-generated method stub
+    if(nextAG.isSelected())
     {
       cAGG+=1;
-      agSelName.setText(AggieLists[cAGG].getName());
       agIMG.setIcon(AggieLists[cAGG].getselIcon());
-      agselAB1 = AggieLists[cAGG].getAbilities()[0].getName();
-      agselAB2 = AggieLists[cAGG].getAbilities()[1].getName();
-      agselAB3 = AggieLists[cAGG].getAbilities()[2].getName();
-      agselAB4 = AggieLists[cAGG].getAbilities()[3].getName();
-      agselAB1t = AggieLists[cAGG].getAbilities()[0].getDesc();
-      agselAB2t = AggieLists[cAGG].getAbilities()[1].getDesc();
-      agselAB3t = AggieLists[cAGG].getAbilities()[2].getDesc();
-      agselAB4t = AggieLists[cAGG].getAbilities()[3].getDesc();
-      larea.setText(agselAB1 + "\n" + agselAB1t + "\n\n" + agselAB2 + "\n" + agselAB2t);
-      Rarea.setText(agselAB3 + "\n" + agselAB3t + "\n\n" + agselAB4 + "\n" + agselAB4t);
-
       JOptionPane.showMessageDialog(Main.this, "Image preview Updated");
-      //k
+      
     }
 		if(end <= str.length()) {
 			display.setText(str.substring(0, end));

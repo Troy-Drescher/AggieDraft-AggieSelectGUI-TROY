@@ -28,7 +28,7 @@ public abstract class Aggie implements ActionListener{
 	
 	protected int turnLost = 0,
 				  trueDMG = 1;
-	//lt
+	
 	private final String name;
 	private int damage,
 				speed,
